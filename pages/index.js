@@ -2,10 +2,26 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import Weather from "../components/Weather";
 import Spinner from "../components/Spinner";
+
+const apiKey = "AIzaSyDQ7OdOXHybmnEVlVMehnYCkTDzifdgAQ4";
+const mapApiJS = "https://maps.googleapis.com/maps/api/js";
+
+function loadAsyncScript(src) {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    Object.assign(script, {
+      type: "text/javascript",
+      async: true,
+      src,
+    });
+    script.addEventListener("load", () => resolve(script));
+    document.head.appendChild(script);
+  });
+}
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -19,7 +35,7 @@ export default function Home() {
     setLoading(true);
     axios.get(url).then((response) => {
       setWeather(response.data);
-      //console.log(response.data);
+      console.log(response.data);
     });
     setCity("");
     setLoading(false);
@@ -36,11 +52,12 @@ export default function Home() {
         {/* Overlay */}
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]"></div>
         {/* Background Image */}
-        <Image
-          src="https://images.unsplash.com/photo-1487621167305-5d248087c724?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
-          layout="fill"
-          className="object-cover"
-          alt="background"
+        <video
+          className="object-cover w-full h-full fixed "
+          src="clouds.mp4"
+          muted
+          loop
+          autoPlay
         />
         {/* Search */}
         <div className="relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 text-white z-10">
