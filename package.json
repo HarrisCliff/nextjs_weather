@@ -1,15 +1,19 @@
 {
   "name": "nextjs_weather",
+  "homepage":"https://HarrisCliff.github.io/nextjs_weather/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "lint": "next lint"
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
