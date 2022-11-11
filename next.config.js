@@ -13,5 +13,6 @@ module.exports = {
       "drive.google.com",
       "images.pexels.com",
     ],
+    unoptimized: true,
   },
 };
