@@ -7,12 +7,14 @@ const nextConfig = {
 
 module.exports = {
   images: {
+    loader: 'akamai',
+    path: '',
     domains: [
       "images.unsplash.com",
       "openweathermap.org",
       "drive.google.com",
       "images.pexels.com",
     ],
-    unoptimized: true,
+    
   },
 };
