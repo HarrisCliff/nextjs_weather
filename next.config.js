@@ -6,9 +6,8 @@ const nextConfig = {
 };
 
 module.exports = {
+  basePath: '/docs',
   images: {
-    loader: 'akamai',
-    path: '',
     domains: [
       "images.unsplash.com",
       "openweathermap.org",
