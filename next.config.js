@@ -6,7 +6,6 @@ const nextConfig = {
 };
 
 module.exports = {
-  basePath: '/docs',
   images: {
     domains: [
       "images.unsplash.com",
